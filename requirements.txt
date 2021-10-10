@@ -1,0 +1,5 @@
+dynmen
+traitlets
+beautifulsoup4
+lxml
+clipboard
