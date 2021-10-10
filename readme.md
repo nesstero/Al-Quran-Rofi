@@ -8,3 +8,4 @@ Al-Quran dengan Terjemahan / Tafsir Jalalayn
 - `mv Quran.py Quran`, `chmod +x Quran` dan jalankan dengan `./Quran`
 
 pengaturan font ada di variabel `font_quran`
+![Al-Quran Rofi](ss.png)
