@@ -12,16 +12,14 @@ paru -S quran-rofi
 ```
 sudo apt install rofi
 ```
-- Pastikan library yang ada sudah terinstall semua denan menggunaka
+- Pastikan library yang ada sudah terinstall semua dengan menggunakan
 ```
 pip install --user requirements.txt
 ```
-- Jalankan Al-Quran Rofi dengan `python3 Quran.py` atau bisa juga dengan :
-- `mv Quran.py Quran`, `chmod +x Quran` dan jalankan dengan `./Quran`
-
+- Jalankan Al-Quran Rofi dengan `python3 Quran.py` atau `python3 <path/dir-dari-quran-rofi>/Quran.py`
 
 ## Fonts
-pengaturan font ada di variabel `font_quran`
+untuk pengaturan font Quran ada di file `.config/quran-rofi.ini`
 
 ## Preview Al-Quran Rofi
 ![Al-Quran Rofi](ss.png)
