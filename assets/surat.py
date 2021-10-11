@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 id_surat = {
         "Al-Fatihah (Pembukaan)":"1",
         "Al-Baqarah (Sapi Betina)":"2",

@@ -7,12 +7,6 @@ import pyperclip as c
 
 font_quran = "Al Qalam Quran Majeed 20"
 
-with open("assets/quran.xml", "r") as q:
-    quran = q.read()
-
-with open("assets/terjemahan.xml", "r") as t:
-    terjemahan = t.read()
-
 al_quran = BeautifulSoup(quran, "xml")
 terjemahan_id = BeautifulSoup(terjemahan, "xml")
 
