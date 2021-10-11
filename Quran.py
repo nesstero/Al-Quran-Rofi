@@ -3,9 +3,23 @@
 from dynmen.rofi import Rofi
 from bs4 import BeautifulSoup
 from assets import *
+from configparser import ConfigParser as conf
 import pyperclip as c
 
-font_quran = "Al Qalam Quran Majeed 20"
+cfg = conf()
+config_folder = p.abspath(".config")
+config_file = p.join(config_folder, "quran-rofi.ini") 
+
+if not p.isfile(config_file):
+    cfg.add_section("Font")
+    cfg.set("Font", "font", "Al Qalam Quran Majeed 20")
+    
+    with open(config_file, "w") as cfg_ini:
+        cfg.write(cfg_ini)
+else:
+    cfg.read(config_file)
+
+font_quran = cfg["Font"]["font"]
 
 al_quran = BeautifulSoup(quran, "xml")
 terjemahan_id = BeautifulSoup(terjemahan, "xml")
