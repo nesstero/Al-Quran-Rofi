@@ -3,7 +3,7 @@
 from dynmen.rofi import Rofi
 from bs4 import BeautifulSoup
 from assets import *
-import clipboard as c
+import pyperclip as c
 
 font_quran = "Al Qalam Quran Majeed 20"
 
