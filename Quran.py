@@ -1,14 +1,15 @@
 #! /usr/bin/env python
 
+from os import environ as env
 from dynmen.rofi import Rofi
 from bs4 import BeautifulSoup
 from assets import *
 from configparser import ConfigParser as conf
 import pyperclip as c
 
+user = env["USER"]
 cfg = conf()
-config_folder = p.abspath(".config")
-config_file = p.join(config_folder, "quran-rofi.ini") 
+config_file = f"/home/{user}/.config/quran-rofi.ini"
 
 if not p.isfile(config_file):
     cfg.add_section("Font")
