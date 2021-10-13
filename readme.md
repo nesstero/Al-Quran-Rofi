@@ -7,6 +7,12 @@ untuk pengguna distro Archlinux dengan paket manager paru:
 paru -S quran-rofi
 ```
 
+## Instalasi Al-Quran Rofi untuk Voidlinux
+untuk pengguna distro Voidlinux bisa menggunakan template yang dibuat oleh [Saikyou Ramen](https://facebook.com/saikyouramen/)
+- [Template Al-Quran Rofi](https://nekobin.com/zirijeneqe)
+- [Template Dynmen](https://nekobin.com/qivopavige)
+- [Package Xbps](https://u.pcloud.link/publink/show?code=kZxa0EXZpB9Im0nFFApVTquniQ5AV0hWhyck)
+
 ## Instalasi Al-Quran Rofi untuk distro lain
 - Install dependensi utama yang dibutuhkan yakni rofi, contoh untuk distro ubuntu/debian
 ```
