@@ -24,8 +24,7 @@ class AlQuran():
     def JumlahAyat(self):
         global list_ayat
         ayat = self.surat.find_all("aya")
-        jml_ayat = len(ayat)
-        jml_ayat = jml_ayat + 1
+        jml_ayat = len(ayat) + 1
         list_ayat = []
         for i in range (1, jml_ayat):
             i = str(i)
@@ -40,7 +39,7 @@ class AlQuran():
 def Menu():
     while True:
         menu_surat = Rofi(lines=11, columns=2, width=700, hide_scrollbar=True)
-        menu_surat.case_sensitive = True
+        menu_surat.case_insensitive = True
         menu_surat.prompt = "Al-Quran"
         menu_surat = menu_surat(id_surat)
         index_surat = menu_surat.value
