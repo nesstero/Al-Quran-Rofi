@@ -9,6 +9,8 @@ al_quran = BeautifulSoup(quran, "xml")
 terjemahan_id = BeautifulSoup(terjemahan, "xml")
 
 list_ayat = []
+index_surat = ""
+index_ayat = ""
 
 class AlQuran():
     def __init__(self, index_surat):
@@ -36,7 +38,80 @@ class AlQuran():
         ayat_terjemahan = ayat_terjemahan.get("text")
         return ayat_terjemahan
 
+def MenuAyat():
+    global index_ayat, quran
+    menu_ayat = Rofi(lines=3, columns=9, width=700, hide_scrollbar=True)
+    menu_ayat.prompt = nama_surat
+    quran = AlQuran(index_surat)
+    jml_ayat = quran.JumlahAyat()
+    menu_ayat = menu_ayat(list_ayat)
+    index_ayat = menu_ayat.selected
+    # index_surat = id_surat
+
+def AyatdanTerjemahan():
+    global ayat, panjang_ayat, terjemahan_ayat, panjang_terjemahan
+    ayat = quran.Ayat(index_ayat)
+    panjang_ayat = len(ayat)
+    terjemahan_ayat = quran.TerjemahanAyat(index_ayat)
+    panjang_terjemahan = len(terjemahan_ayat)
+
+def CopyAyat():
+    if opt_tafsir == "true":
+        ayat_dan_terjemahan = f"Ayat {index_ayat} Surat {nama_surat}: \n {ayat} \n Tafsir Jalalayn: \n {terjemahan_ayat}"
+    else:    
+        ayat_dan_terjemahan = f"Ayat {index_ayat} Surat {nama_surat}: \n {ayat} \n Terjemahan: \n {terjemahan_ayat}"
+    c.copy(ayat_dan_terjemahan)
+
+def TampilAyat():
+    global p_tampil_ayat
+    if panjang_ayat >= 500:
+        menu_tampil_ayat = Rofi(lines=1, columns=2, width=1270, font=font_quran, hide_scrollbar=True)
+    else:
+        menu_tampil_ayat = Rofi(lines=1, columns=2, width=700, font=font_quran, hide_scrollbar=True)
+    tampil_ayat = f"\n {ayat} \n"
+    menu_tampil_ayat.prompt = f"Ayat {index_ayat} Surat {index_surat}"
+    menu_tampil_ayat.mesg = tampil_ayat
+    l_menu_tampil_ayat = {"Terjemahan/Tafsir", "Ayat"}
+    l_menu_tampil_ayat = sorted(l_menu_tampil_ayat)
+    menu_tampil_ayat = menu_tampil_ayat(l_menu_tampil_ayat)
+    p_tampil_ayat = menu_tampil_ayat.selected
+
+def TampilTerjemahan():
+    if p_tampil_ayat == "Terjemahan/Tafsir":
+        l_menu_tampil_terjemahan = {"Ayat", "Surat", "Copy"}
+        l_menu_tampil_terjemahan = sorted(l_menu_tampil_terjemahan)
+        if panjang_terjemahan >= 1000:
+            menu_tampil_terjemahan = Rofi(lines=1, columns=3, width=1270, hide_scrollbar=True)
+        else:
+            menu_tampil_terjemahan = Rofi(lines=1, columns=3, width=700, hide_scrollbar=True)
+        if opt_tafsir == "true": 
+            menu_tampil_terjemahan.prompt = f"Tafsir Jalalayn Surat {index_surat} Ayat {index_ayat}"
+        else:
+            menu_tampil_terjemahan.prompt = f"Terjemahan Surat {index_surat} Ayat {index_ayat}"
+        menu_tampil_terjemahan.mesg = terjemahan_ayat
+        menu_tampil_terjemahan = menu_tampil_terjemahan(l_menu_tampil_terjemahan)
+        p_tampil_terjemahan = menu_tampil_terjemahan.selected
+        if p_tampil_terjemahan == "Ayat":
+            AyatdanTerjemahan()
+            TampilAyat()
+            TampilTerjemahan()
+        elif p_tampil_terjemahan == "Surat":
+            Menu()
+        elif p_tampil_terjemahan == "Copy":
+            CopyAyat()
+            exit()
+        else:
+            exit()
+    elif p_tampil_ayat == "Ayat":
+        MenuAyat()
+        AyatdanTerjemahan()
+        TampilAyat()
+        TampilTerjemahan()
+    else:
+        exit()
+
 def Menu():
+    global nama_surat, index_surat
     while True:
         menu_surat = Rofi(lines=11, columns=2, width=700, hide_scrollbar=True)
         menu_surat.case_insensitive = True
@@ -45,79 +120,11 @@ def Menu():
         index_surat = menu_surat.value
         nama_surat = menu_surat.selected
         
-        quran = AlQuran(index_surat)
-        
-        def MenuAyat():
-            global index_ayat
-            menu_ayat = Rofi(lines=3, columns=9, width=700, hide_scrollbar=True)
-            menu_ayat.prompt = nama_surat
-            jml_ayat = quran.JumlahAyat()
-            menu_ayat = menu_ayat(list_ayat)
-            index_ayat = menu_ayat.selected
         MenuAyat()
 
-        def AyatdanTerjemahan():
-            global ayat, panjang_ayat, terjemahan_ayat, panjang_terjemahan
-            ayat = quran.Ayat(index_ayat)
-            panjang_ayat = len(ayat)
-            terjemahan_ayat = quran.TerjemahanAyat(index_ayat)
-            panjang_terjemahan = len(terjemahan_ayat)
         AyatdanTerjemahan()
-        
-        def CopyAyat():
-            if opt_tafsir == "true":
-                ayat_dan_terjemahan = f"Ayat {index_ayat} Surat {nama_surat}: \n {ayat} \n Tafsir Jalalayn: \n {terjemahan_ayat}"
-            else:    
-                ayat_dan_terjemahan = f"Ayat {index_ayat} Surat {nama_surat}: \n {ayat} \n Terjemahan: \n {terjemahan_ayat}"
-            c.copy(ayat_dan_terjemahan)
 
-        l_menu_tampil_ayat = {"Terjemahan/Tafsir", "Ayat"}
-        l_menu_tampil_ayat = sorted(l_menu_tampil_ayat)
-        def TampilAyat():
-            global p_tampil_ayat
-            if panjang_ayat >= 500:
-                menu_tampil_ayat = Rofi(lines=1, columns=2, width=1270, font=font_quran, hide_scrollbar=True)
-            else:
-                menu_tampil_ayat = Rofi(lines=1, columns=2, width=700, font=font_quran, hide_scrollbar=True)
-            tampil_ayat = f"\n {ayat} \n"
-            menu_tampil_ayat.prompt = f"Ayat {index_ayat} Surat {nama_surat}"
-            menu_tampil_ayat.mesg = tampil_ayat
-            menu_tampil_ayat = menu_tampil_ayat(l_menu_tampil_ayat)
-            p_tampil_ayat = menu_tampil_ayat.selected
         TampilAyat()
 
-        def TampilTerjemahan():
-            if p_tampil_ayat == "Terjemahan/Tafsir":
-                l_menu_tampil_terjemahan = {"Ayat", "Surat", "Copy"}
-                l_menu_tampil_terjemahan = sorted(l_menu_tampil_terjemahan)
-                if panjang_terjemahan >= 1000:
-                    menu_tampil_terjemahan = Rofi(lines=1, columns=3, width=1270, hide_scrollbar=True)
-                else:
-                    menu_tampil_terjemahan = Rofi(lines=1, columns=3, width=700, hide_scrollbar=True)
-                if opt_tafsir == "true": 
-                    menu_tampil_terjemahan.prompt = f"Tafsir Jalalayn Surat {nama_surat} Ayat {index_ayat}"
-                else:
-                    menu_tampil_terjemahan.prompt = f"Terjemahan Surat {nama_surat} Ayat {index_ayat}"
-                menu_tampil_terjemahan.mesg = terjemahan_ayat
-                menu_tampil_terjemahan = menu_tampil_terjemahan(l_menu_tampil_terjemahan)
-                p_tampil_terjemahan = menu_tampil_terjemahan.selected
-                if p_tampil_terjemahan == "Ayat":
-                    AyatdanTerjemahan()
-                    TampilAyat()
-                    TampilTerjemahan()
-                elif p_tampil_terjemahan == "Surat":
-                    Menu()
-                elif p_tampil_terjemahan == "Copy":
-                    CopyAyat()
-                    exit()
-                else:
-                    exit()
-            elif p_tampil_ayat == "Ayat":
-                MenuAyat()
-                AyatdanTerjemahan()
-                TampilAyat()
-                TampilTerjemahan()
-            else:
-                exit()
         TampilTerjemahan()
 Menu()
