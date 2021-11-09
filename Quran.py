@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-from dynmen.rofi import Rofi
+from pyrof.rofi import Rofi
 from bs4 import BeautifulSoup
 from assets import *
 import pyperclip as c
@@ -40,7 +40,7 @@ class AlQuran():
 
 def MenuAyat():
     global index_ayat, quran
-    menu_ayat = Rofi(lines=3, columns=9, width=700, hide_scrollbar=True)
+    menu_ayat = Rofi(theme_str=r_ayat)
     menu_ayat.prompt = nama_surat
     quran = AlQuran(index_surat)
     jml_ayat = quran.JumlahAyat()
@@ -65,25 +65,27 @@ def CopyAyat():
 def TampilAyat():
     global p_tampil_ayat
     if panjang_ayat >= 500:
-        menu_tampil_ayat = Rofi(lines=1, columns=2, width=1270, font=font_quran, hide_scrollbar=True)
+        menu_tampil_ayat = Rofi(theme_str=r_ayat_panjang)
     else:
-        menu_tampil_ayat = Rofi(lines=1, columns=2, width=700, font=font_quran, hide_scrollbar=True)
+        menu_tampil_ayat = Rofi(theme_str=r_ayat_pendek)
     tampil_ayat = f"\n {ayat} \n"
     menu_tampil_ayat.prompt = f"Ayat {index_ayat} Surat {index_surat}"
     menu_tampil_ayat.mesg = tampil_ayat
-    l_menu_tampil_ayat = {"Terjemahan/Tafsir", "Ayat"}
+    l_menu_tampil_ayat = {"Terjemahan/Tafsir", "Ayat", "Surat"}
     l_menu_tampil_ayat = sorted(l_menu_tampil_ayat)
     menu_tampil_ayat = menu_tampil_ayat(l_menu_tampil_ayat)
     p_tampil_ayat = menu_tampil_ayat.selected
+    if p_tampil_ayat == "Surat":
+        Menu()
 
 def TampilTerjemahan():
     if p_tampil_ayat == "Terjemahan/Tafsir":
         l_menu_tampil_terjemahan = {"Ayat", "Surat", "Copy"}
         l_menu_tampil_terjemahan = sorted(l_menu_tampil_terjemahan)
         if panjang_terjemahan >= 1000:
-            menu_tampil_terjemahan = Rofi(lines=1, columns=3, width=1270, hide_scrollbar=True)
+            menu_tampil_terjemahan = Rofi(theme_str=r_ter_panjang)
         else:
-            menu_tampil_terjemahan = Rofi(lines=1, columns=3, width=700, hide_scrollbar=True)
+            menu_tampil_terjemahan = Rofi(theme_str=r_ter_pendek)
         if opt_tafsir == "true": 
             menu_tampil_terjemahan.prompt = f"Tafsir Jalalayn Surat {index_surat} Ayat {index_ayat}"
         else:
@@ -113,7 +115,7 @@ def TampilTerjemahan():
 def Menu():
     global nama_surat, index_surat
     while True:
-        menu_surat = Rofi(lines=11, columns=2, width=700, hide_scrollbar=True)
+        menu_surat = Rofi(theme_str=r_surat)
         menu_surat.case_insensitive = True
         menu_surat.prompt = "Al-Quran"
         menu_surat = menu_surat(id_surat)

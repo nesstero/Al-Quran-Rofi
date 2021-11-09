@@ -22,6 +22,7 @@ sudo apt install rofi
 ```
 pip install --user requirements.txt
 ```
+- Install [pyrof](https://github.com/nesstero/pyrof)
 - Jalankan Al-Quran Rofi dengan `python3 Quran.py` atau `python3 <path/dir-dari-quran-rofi>/Quran.py`
 
 ## Fonts

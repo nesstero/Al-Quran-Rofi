@@ -22,11 +22,11 @@ else:
 opt_tafsir = cfg["Tafsir"]["tafsir"]
 
 f = p.dirname(p.abspath(__file__))
-quran = p.join(f, "quran.xml")
+quran = p.join(f, "source/quran.xml")
 if opt_tafsir == "true":
-    terjemahan = p.join(f, "tafsir.xml")
+    terjemahan = p.join(f, "source/tafsir.xml")
 else:
-    terjemahan = p.join(f, "terjemahan.xml")
+    terjemahan = p.join(f, "source/terjemahan.xml")
 
 with open(quran, "r") as q:
     quran = q.read()
@@ -35,3 +35,9 @@ with open(terjemahan, "r") as t:
     terjemahan = t.read()
 
 font_quran = cfg["Font"]["font"]
+r_surat = 'listview {lines: 11; columns: 3;} window {width: 700px; border-radius: 6px;}'
+r_ayat = 'listview {lines: 3; columns: 11;} window {width: 700px; border-radius: 6px;}'
+r_ayat_pendek = '* {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 3;} window {width: 700px; border-radius: 6px;}' 
+r_ayat_panjang = '* {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 3;} window {width: 1000px; border-radius: 6px;}'
+r_ter_pendek = 'listview {lines: 1; columns: 3;} window {width: 700px; border-radius: 6px;}'
+r_ter_panjang = 'listview {lines: 1; columns: 3;} window {width: 700px; border-radius: 6px;}'
