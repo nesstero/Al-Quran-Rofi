@@ -37,7 +37,7 @@ with open(terjemahan, "r") as t:
 font_quran = cfg["Font"]["font"]
 r_surat = 'listview {lines: 11; columns: 2;} window {width: 700px; border-radius: 6px;}'
 r_ayat = 'listview {lines: 3; columns: 11;} window {width: 700px; border-radius: 6px;}'
-r_ayat_pendek = '* {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 3;} window {width: 700px; border-radius: 6px;}' 
-r_ayat_panjang = '* {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 3;} window {width: 1000px; border-radius: 6px;}'
+r_ayat_pendek = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} window {width: 700px; border-radius: 6px;}' 
+r_ayat_panjang = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} window {width: 1000px; border-radius: 6px;}'
 r_ter_pendek = 'listview {lines: 1; columns: 3;} window {width: 700px; border-radius: 6px;}'
 r_ter_panjang = 'listview {lines: 1; columns: 3;} window {width: 700px; border-radius: 6px;}'
