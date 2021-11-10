@@ -93,8 +93,8 @@ def TampilAyat():
     tampil_ayat = f"\n {ayat} \n"
     menu_tampil_ayat.prompt = f"{nama_surat} Ayat {index_ayat}"
     menu_tampil_ayat.mesg = tampil_ayat
-    l_menu_tampil_ayat = {"Terjemahan/Tafsir", "Ayat", "Surat", "Next", "Prev"}
-    l_menu_tampil_ayat = sorted(l_menu_tampil_ayat)
+    l_menu_tampil_ayat = ["Next", "Prev", "Terjemahan", "Ayat", "Surat"]
+    # l_menu_tampil_ayat = sorted(l_menu_tampil_ayat)
     menu_tampil_ayat = menu_tampil_ayat(l_menu_tampil_ayat)
     p_tampil_ayat = menu_tampil_ayat.selected
     if p_tampil_ayat == "Surat":
@@ -105,9 +105,9 @@ def TampilAyat():
         PrevAyat()
 
 def TampilTerjemahan():
-    if p_tampil_ayat == "Terjemahan/Tafsir":
-        l_menu_tampil_terjemahan = {"Ayat", "Surat", "Copy"}
-        l_menu_tampil_terjemahan = sorted(l_menu_tampil_terjemahan)
+    if p_tampil_ayat == "Terjemahan":
+        l_menu_tampil_terjemahan = ["Ayat", "Surat", "Copy"]
+        # l_menu_tampil_terjemahan = sorted(l_menu_tampil_terjemahan)
         if panjang_terjemahan >= 1000:
             menu_tampil_terjemahan = Rofi(theme_str=r_ter_panjang)
         else:
