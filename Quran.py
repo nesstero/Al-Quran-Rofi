@@ -3,7 +3,7 @@
 from pyrof.rofi import Rofi
 from bs4 import BeautifulSoup
 from assets import *
-import pyperclip as c
+import subprocess as sub
 
 al_quran = BeautifulSoup(quran, "xml")
 terjemahan_id = BeautifulSoup(terjemahan, "xml")
@@ -82,7 +82,8 @@ def CopyAyat():
         ayat_dan_terjemahan = f"Ayat {index_ayat} Surat {nama_surat}: \n {ayat} \n Tafsir Jalalayn: \n {terjemahan_ayat}"
     else:    
         ayat_dan_terjemahan = f"Ayat {index_ayat} Surat {nama_surat}: \n {ayat} \n Terjemahan: \n {terjemahan_ayat}"
-    c.copy(ayat_dan_terjemahan)
+    copy_ayat = sub.Popen(['xclip', '-selection', 'clipboard'], stdin=sub.PIPE, close_fds=True)
+    copy_ayat.communicate(input=ayat_dan_terjemahan.encode("utf-8"))
 
 def TampilAyat():
     global p_tampil_ayat
@@ -94,7 +95,6 @@ def TampilAyat():
     menu_tampil_ayat.prompt = f"{nama_surat} Ayat {index_ayat}"
     menu_tampil_ayat.mesg = tampil_ayat
     l_menu_tampil_ayat = ["Next", "Prev", "Terjemahan", "Ayat", "Surat"]
-    # l_menu_tampil_ayat = sorted(l_menu_tampil_ayat)
     menu_tampil_ayat = menu_tampil_ayat(l_menu_tampil_ayat)
     p_tampil_ayat = menu_tampil_ayat.selected
     if p_tampil_ayat == "Surat":
@@ -107,7 +107,6 @@ def TampilAyat():
 def TampilTerjemahan():
     if p_tampil_ayat == "Terjemahan":
         l_menu_tampil_terjemahan = ["Ayat", "Surat", "Copy"]
-        # l_menu_tampil_terjemahan = sorted(l_menu_tampil_terjemahan)
         if panjang_terjemahan >= 1000:
             menu_tampil_terjemahan = Rofi(theme_str=r_ter_panjang)
         else:

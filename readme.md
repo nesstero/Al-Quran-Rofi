@@ -6,7 +6,6 @@ Al-Quran dengan Terjemahan / Tafsir Jalalayn
 ### Manual
 #### Requirements
 - [Rofi](https://github.com/davatorium/rofi)
-- [Pyrof](https://github.com/nesstero/pyrof)
 #### Installasi
 - `git clone git@github.com:nesstero/Al-Quran-Rofi.git`
 - `pip install -r requirements.txt`
