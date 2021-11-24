@@ -1,8 +1,11 @@
 #! /usr/bin/env python
 
+from .surat import *
+from .data import *
+# from .murotal import *
 from pyrof.rofi import Rofi
 from bs4 import BeautifulSoup
-from assets import *
+# from assets import *
 import subprocess as sub
 
 al_quran = BeautifulSoup(quran, "xml")

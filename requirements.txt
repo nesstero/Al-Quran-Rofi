@@ -1,3 +1,0 @@
-pyrof
-beautifulsoup4
-lxml
