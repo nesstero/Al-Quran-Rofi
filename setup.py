@@ -7,7 +7,7 @@ with open("README.md", "r") as des:
 setup(
     name='quran_rofi',
     packages=find_packages(),
-    version='0.1.1',
+    version='0.1.3',
     entry_points={'console_scripts': ['quran-rofi = quran_rofi.quran:Menu']},
     include_package_data=True,
     package_data={'': ['source/*.xml']},

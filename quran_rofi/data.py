@@ -40,4 +40,4 @@ r_ayat = 'listview {lines: 3; columns: 11;} element-text {horizontal-align: 0.5;
 r_ayat_pendek = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}' 
 r_ayat_panjang = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 1000px; border-radius: 6px;}'
 r_ter_pendek = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}'
-r_ter_panjang = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}'
+r_ter_panjang = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 1200px; border-radius: 6px;}'

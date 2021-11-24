@@ -1,2 +1,3 @@
-/assets/__pycache__/*
-/referensi/*
+/build/*
+/dist/*
+/quran_rofi.egg-info/*
