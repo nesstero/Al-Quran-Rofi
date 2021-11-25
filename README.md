@@ -5,6 +5,7 @@ Al-Quran dengan Terjemahan / Tafsir Jalalayn
 #### Requirements
 - [Rofi](https://github.com/davatorium/rofi)
 - [xclip](https://github.com/astrand/xclip)
+- Al-Quran Rofi menggunakan font [Al Qalam Quran Majeed](https://github.com/nesstero/Al-Quran-Rofi/raw/master/quran_rofi/Font/Al%20Qalam%20Quran%20Majeed.ttf)
 #### Installasi
 - `pip install quran-rofi`
 
