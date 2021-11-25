@@ -12,7 +12,7 @@ if not p.isfile(config_file):
     cfg.set("Font", "font", "Al Qalam Quran Majeed 20")
     
     cfg.add_section("Tafsir")
-    cfg.set("Tafsir", "tafsir", "true")
+    cfg.set("Tafsir", "tafsir", "false")
     
     with open(config_file, "w") as cfg_ini:
         cfg.write(cfg_ini)
@@ -25,6 +25,8 @@ f = p.dirname(p.abspath(__file__))
 quran = p.join(f, "source/quran.xml")
 if opt_tafsir == "true":
     terjemahan = p.join(f, "source/tafsir.xml")
+elif opt_tafsir == "false":
+    terjemahan = p.join(f, "source/terjemahan.xml")
 else:
     terjemahan = p.join(f, "source/terjemahan.xml")
 
@@ -40,4 +42,4 @@ r_ayat = 'listview {lines: 3; columns: 11;} element-text {horizontal-align: 0.5;
 r_ayat_pendek = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}' 
 r_ayat_panjang = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 1000px; border-radius: 6px;}'
 r_ter_pendek = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}'
-r_ter_panjang = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 1200px; border-radius: 6px;}'
+r_ter_panjang = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 1000px; border-radius: 6px;}'
