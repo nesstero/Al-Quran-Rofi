@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="375.79724"
+   height="495.33044"
+   viewBox="0 0 375.79724 495.33044"
+   sodipodi:docname="quran.svg"
+   inkscape:export-filename="/home/nestero/Public/Python/Al-Quran-Rofi/quran_rofi/assets/quran.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.0899486"
+     inkscape:cx="165.60414"
+     inkscape:cy="128.44642"
+     inkscape:window-width="1356"
+     inkscape:window-height="735"
+     inkscape:window-x="5"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8"
+     showguides="false"
+     inkscape:guide-bbox="true" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g8"
+     transform="translate(-215.25946,-225.36528)">
+    <rect
+       style="fill:#282a36;fill-opacity:1;stroke:none;stroke-width:1.13593;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+       id="rect1285"
+       width="374.66132"
+       height="494.19452"
+       x="215.82742"
+       y="225.93324"
+       ry="36.955807" />
+    <rect
+       style="fill:#bd93f9;fill-opacity:1;stroke:none;stroke-width:0.947537;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+       id="rect20978"
+       width="302.04929"
+       height="426.5282"
+       x="258.68835"
+       y="259.76642"
+       ry="31.895727" />
+    <rect
+       style="fill:#caa9fa;fill-opacity:1;stroke:none;stroke-width:0.816247;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+       id="rect23441"
+       width="260.19748"
+       height="367.42862"
+       x="279.61426"
+       y="289.31619"
+       ry="27.476269" />
+    <g
+       id="g20587"
+       transform="translate(-13.2464,-6.0187545)">
+      <path
+         sodipodi:type="star"
+         style="fill:#282a36;fill-opacity:1;stroke:none;stroke-width:1.13386;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+         id="path17930"
+         inkscape:flatsided="false"
+         sodipodi:sides="5"
+         sodipodi:cx="195.6824"
+         sodipodi:cy="242.36304"
+         sodipodi:r1="86.096161"
+         sodipodi:r2="43.04808"
+         sodipodi:arg1="-1.5707963"
+         sodipodi:arg2="-0.9424778"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 195.68241,156.26688 25.30302,51.26953 56.57929,8.22145 -40.94116,39.90777 9.6649,56.35067 -50.60606,-26.60518 -50.60605,26.60517 9.6649,-56.35066 -40.94116,-39.90777 56.57929,-8.22145 z"
+         transform="matrix(0.57178676,0,0,0.57178676,339.02833,324.64364)"
+         inkscape:transform-center-y="-4.7009168"
+         inkscape:transform-center-x="-2.0100957e-06" />
+      <path
+         id="path17954"
+         style="fill:#282a36;fill-opacity:1;stroke:none;stroke-width:0.821269;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+         d="m 411.72433,389.4353 a 91.230083,87.688642 78.638439 0 0 -67.99771,106.71769 91.230083,87.688642 78.638439 0 0 103.94233,72.16708 91.230083,87.688642 78.638439 0 0 56.38187,-40.17812 81.994645,78.811717 78.638439 0 1 -26.85189,11.29577 81.994645,78.811717 78.638439 0 1 -93.41992,-64.86185 81.994645,78.811717 78.638439 0 1 37.1277,-86.45032 91.230083,87.688642 78.638439 0 0 -9.18238,1.30975 z" />
+    </g>
+    <path
+       id="rect27856"
+       style="fill:#231e36;fill-opacity:1;stroke:none;stroke-width:1.05687;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+       d="M 17.865234 6.2382812 C 7.4719469 12.764724 0.56835938 24.294463 0.56835938 37.523438 L 0.56835938 457.80664 C 0.56835938 468.19979 4.8286244 477.55186 11.689453 484.25391 C 15.495518 479.54071 17.865234 473.61582 17.865234 467.05859 L 17.865234 6.2382812 z "
+       transform="translate(215.25946,225.36528)" />
+  </g>
+</svg>

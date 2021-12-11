@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Al'Quran Rofi
+Icon=quran.png
+TryExec=quran-rofi
+Exec=quran-rofi
+Terminal=false
