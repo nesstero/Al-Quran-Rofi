@@ -37,9 +37,8 @@ with open(terjemahan, "r") as t:
     terjemahan = t.read()
 
 font_quran = cfg["Font"]["font"]
-r_surat = 'listview {lines: 11; columns: 2;} window {width: 700px; border-radius: 6px;}'
-r_ayat = 'listview {lines: 3; columns: 11;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}'
-r_ayat_pendek = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}' 
-r_ayat_panjang = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 1000px; border-radius: 6px;}'
-r_ter_pendek = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}'
-r_ter_panjang = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 1000px; border-radius: 6px;}'
+
+ayat_panjang = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 1000px; border-radius: 6px;}'
+ayat_pendek = 'textbox {font : ' '"' + font_quran + '"' ';} listview {lines: 1; columns: 5;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}' 
+terjemahan_panjang = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 1000px; border-radius: 6px;}'
+terjemahan_pendek = 'listview {lines: 1; columns: 3;} element-text {horizontal-align: 0.5;} window {width: 700px; border-radius: 6px;}'
