@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-id_surat = {
+idSurat = {
         "Al-Fatihah (Pembukaan)":"1",
         "Al-Baqarah (Sapi Betina)":"2",
         "Ali Imran (Keluarga Imran)":"3",

@@ -10,7 +10,7 @@ Al-Quran dengan Terjemahan / Tafsir Jalalayn
 - `pip install quran-rofi`
 
 ## Configure
-untuk pengaturan font Quran dan opsi terjemahan atau tafsir ada di file `~/.config/quran-rofi.ini`
+untuk pengaturan font Quran ada di file `~/.config/quran-rofi.ini`
 
 ## Icon Desktop
 File `.desktop` Al-Quran Rofi ada di `~/.local/share/applications/quran.desktop`, jika icon desktop pada `rofi drun` tidak muncul bisa di ubah file `quran.desktop` pada bagian Icon:
