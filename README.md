@@ -20,21 +20,8 @@ Update cache font dengan :
 $ fc-cache -fv
 ```
 
-## Icon Desktop
-File `.desktop` Al-Quran Rofi ada di `~/.local/share/applications/quran.desktop`, jika icon desktop pada `rofi drun` tidak muncul bisa di ubah file `quran.desktop` pada bagian Icon:
-```
-[Desktop Entry]
-Type=Application
-Name=Al'Quran Rofi
-Icon=~/.local/share/icons/quran.png
-TryExec=quran-rofi
-Exec=quran-rofi
-Terminal=false
-```
-
 ## Preview Al-Quran Rofi
 ![Al-Quran Rofi](https://github.com/nesstero/Al-Quran-Rofi/raw/master/ss.png)
-
 
 ## Perubahan 
 ### [0.1.8](https://pypi.org/project/quran-rofi/0.1.8/)
