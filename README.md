@@ -36,5 +36,6 @@ Terminal=false
 ![Al-Quran Rofi](https://github.com/nesstero/Al-Quran-Rofi/raw/master/ss.png)
 
 
-## Perubahan [0.1.8](https://pypi.org/project/quran-rofi/0.1.8/)
+## Perubahan 
+###[0.1.8](https://pypi.org/project/quran-rofi/0.1.8/)
 - Menggunakan **[alquran-id](https://pypi.org/project/alquran-id/)**
