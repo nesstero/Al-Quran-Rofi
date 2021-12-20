@@ -5,6 +5,7 @@ from .surat import *
 from .config import *
 from pyrof.rofi import Rofi
 import subprocess as sub
+from threading import Thread as thr
 
 class quranRofi():
     
@@ -67,13 +68,19 @@ def showSurat():
         menu = menu.selected
         return menu
         
+    def playMurotal():
+        Murotal(id_surat, id_ayat)
+    
     def showAyat():
         if len(ayat) >= 1000:
             th = ayat_panjang
         else:
             th = ayat_pendek
-        opt_ayat = ("Next", "Prev", "Terjemahan",  "Tafsir", "Surat")
-        show = showRofi(th, f"\n{ayat}\n", f"{nama_surat} ayat {id_ayat}", opt_ayat)
+        if murotal == "on":
+            opt_ayat = ("Next", "Prev", "Terjemahan",  "Tafsir", "Surat", "Play")
+        else:
+            opt_ayat = ("Next", "Prev", "Terjemahan",  "Tafsir", "Surat")
+        show = showRofi(th, f"\n{ayat}\n", f"{nama_surat} ayat {id_ayat}:", opt_ayat)
         if show == opt_ayat[0]:
             nextAyat()
         elif show == opt_ayat[1]:
@@ -84,6 +91,9 @@ def showSurat():
             showTafsir()
         elif show == opt_ayat[4]:
             showSurat()
+        elif show == opt_ayat[5]:
+            thr(target=playMurotal).start()
+            thr(target=showAyat).start()
     
     def showTerjemahan():
         if len(terjemahan) >= 1000:
@@ -91,54 +101,95 @@ def showSurat():
         else:
             th = terjemahan_pendek
         opt_terjemahan = ("Back", "Copy")
-        show = showRofi(th, f"{terjemahan}", f"Terjemahan {nama_surat} ayat {id_ayat}", opt_terjemahan)
+        show = showRofi(th, f"{terjemahan}", f"Terjemahan {nama_surat} ayat {id_ayat}:", opt_terjemahan)
         if show == opt_terjemahan[0]:
             showAyat()
         elif show == opt_terjemahan[1]:
             copy()
     
     def showTafsir():
-        if len(tafsir) >= 1000:
+        if len(tafsir) >= 1850:
             th = tafsir_panjang
         else:
             th = tafsir_pendek
         opt_tafsir = ("Back", "Copy")
-        show = showRofi(th, f"{tafsir}", f"Tafsir {nama_surat} ayat {id_ayat}", opt_tafsir)
+        show = showRofi(th, f"{tafsir}", f"Tafsir {nama_surat} ayat {id_ayat}:", opt_tafsir)
         if show == opt_tafsir[0]:
             showAyat()
         elif show == opt_tafsir[1]:
             copy()
 
     def nextAyat():
-        nonlocal id_ayat, ayat, terjemahan, tafsir
+        nonlocal nama_surat, id_surat, id_ayat, ayat, terjemahan, tafsir
+        quran = Quran()
         id_ayat = int(id_ayat) + 1
-        jml_ayt = jml_ayat + 1
-        if id_ayat == jml_ayt:
+        jml_ayt = quran.JumlahAyat(id_surat)
+        if id_surat == "114" and id_ayat == jml_ayt + 1:
             showSurat()
+        elif id_ayat == jml_ayt + 1:
+            id_surat = int(id_surat) + 1
+            id_ayat = 1
+            nama_surat = list(idSurat).index(nama_surat)
+            nama_surat = nama_surat + 1
+            nama_surat = list(idSurat)[nama_surat]
+            ayat = quran.Ayat(id_surat, id_ayat)
+            terjemahan = quran.Terjemahan(id_surat, id_ayat)
+            tafsir = quran.Tafsir(id_surat, 1)
+            if autoplay == "on":
+                thr(target=playMurotal).start()
+                thr(target=showAyat).start()
+            else:
+                showAyat()
         else:
-            quran = Quran()
             ayat = quran.Ayat(id_surat, id_ayat)
             terjemahan = quran.Terjemahan(id_surat, id_ayat)
             tafsir = quran.Tafsir(id_surat, id_ayat)
-            showAyat()
+            if autoplay == "on":
+                thr(target=playMurotal).start()
+                thr(target=showAyat).start()
+            else:
+                showAyat()
 
     def prevAyat():
-        nonlocal id_ayat, ayat, terjemahan, tafsir
+        nonlocal nama_surat, id_surat, id_ayat, ayat, terjemahan, tafsir
+        quran = Quran()
         id_ayat = int(id_ayat) - 1
-        if id_ayat == 0:
+        id_surat = int(id_surat)
+        if id_surat == 1 and id_ayat == 0:
             showSurat()
-        else:
-            quran = Quran()
+        elif id_ayat == 0:
+            id_surat = int(id_surat) - 1
+            id_ayat = quran.JumlahAyat(id_surat)
+            nama_surat = list(idSurat).index(nama_surat)
+            nama_surat = nama_surat - 1
+            nama_surat = list(idSurat)[nama_surat]
             ayat = quran.Ayat(id_surat, id_ayat)
             terjemahan = quran.Terjemahan(id_surat, id_ayat)
             tafsir = quran.Tafsir(id_surat, id_ayat)
-            showAyat()
+            if autoplay == "on":
+                thr(target=playMurotal).start()
+                thr(target=showAyat).start()
+            else:
+                showAyat()
+        else:
+            ayat = quran.Ayat(id_surat, id_ayat)
+            terjemahan = quran.Terjemahan(id_surat, id_ayat)
+            tafsir = quran.Tafsir(id_surat, id_ayat)
+            if autoplay == "on":
+                thr(target=playMurotal).start()
+                thr(target=showAyat).start()
+            else:
+                showAyat()
 
     def copy():
         quran_text = f"Surat {nama_surat} Ayat {id_ayat} : \n {ayat} \n Terjemahan: \n {terjemahan} \n Tafsir: \n {tafsir}"
         copy_quran = sub.Popen(['xclip', '-selection', 'clipboard'], stdin=sub.PIPE, close_fds=True)
         copy_quran.communicate(input=quran_text.encode("utf-8"))
-    
-    showAyat()
+
+    if autoplay == "on":
+        thr(target=playMurotal).start()
+        thr(target=showAyat).start()
+    else:
+        showAyat()
 
 showSurat()
