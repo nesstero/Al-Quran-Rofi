@@ -37,5 +37,5 @@ Terminal=false
 
 
 ## Perubahan 
-###[0.1.8](https://pypi.org/project/quran-rofi/0.1.8/)
+### [0.1.8](https://pypi.org/project/quran-rofi/0.1.8/)
 - Menggunakan **[alquran-id](https://pypi.org/project/alquran-id/)**
